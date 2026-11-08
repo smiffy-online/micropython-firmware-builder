@@ -11,10 +11,14 @@ I started this, wanting two things:
 
 I did the original build with Claude Code, when it was the models were less sophisticated, and I was less experienced. We got something working, but it's not something I would want to offer to the community, as it takes a fair bit of work to get set up.
 
+Original work in [v1](v1/)
+
 ## Roadmap - October 2026
 
 * Start again, from scratch, taking the lessons learnt from the first build.
 * Make setup as easy as possible, automate what can be automated, provide a guide for those parts that can't.
 * Drive the whole thing through a Python/QT UI
 * [optional] interface with flashing tools 
+
+New work will be in [v2](v2)
 
