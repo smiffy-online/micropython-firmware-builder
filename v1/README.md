@@ -15,11 +15,7 @@ python3 mpy_build.py all           # build all boards (ESP32-family)
 Output lands in `firmware/`, named `<artifact>-<board>-micropython-<mp-version>.bin|hex`.
 A running build log is appended to `firmware/build.log`.
 
-## Provenance and recovery status
-
-Recovered verbatim from the dolly bootstrap drive (`/mnt/dolly/mpy-tooling/`,
-files last modified 2026-07-25) after the machine rebuild, and committed
-here as v1. Included:
+## Files
 
 - `mpy_build.py` - the build script (Python 3.11+, stdlib only)
 - `mpy_build_spec.md` - the full build-system specification; the
@@ -31,7 +27,7 @@ here as v1. Included:
   builds; artifacts are committed because the project itself is about
   reproducible builds)
 
-Not recovered (too large to back up; must be re-created on a fresh
+Not included (must be re-created on a fresh
 machine): the MicroPython source checkout, ESP-IDF v5.5.2 + toolchains,
 and `repos/` (the micro:bit v2 port). Section 11 of `mpy_build_spec.md`
 has the complete setup recipe.
@@ -66,7 +62,7 @@ Do not replace these with upstream versions.
 
 ## Reconstruction hazards (applied to the source tree, not to this repo)
 
-Three changes lived inside the (unrecovered) MicroPython port tree and are
+Three changes lived inside the MicroPython port tree and are
 known only from `mpy_build_spec.md`. After re-setting up, re-apply them:
 
 1. **S3 N8R16 variant** (Section 7): add
@@ -106,12 +102,5 @@ Full commands in `mpy_build_spec.md` Section 8. Summary:
 - **ESP32-S3 N8R16**: single merged image at `0x0`; device must be in
   bootloader mode first (hold BOOT, tap RESET).
 - **micro:bit**: copy the hex to the `MICROBIT` USB drive, or use `uflash`.
-
-## History
-
-This generation descends from two earlier versions maintained on z50
-(2025-09, 2025-11, on the bootstrap drive at `/mnt/z50/bin/`, not in this
-repo). The dolly generation (May 2026 - July 2026) added the board
-registry, the CODAL micro:bit path, and the S3 N8R16 variant.
 
 v2 will hold the next iteration of the build system.
