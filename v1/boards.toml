@@ -1,0 +1,27 @@
+[cyd]
+port = "esp32"
+ext = "bin"
+make_args = "BOARD=ESP32_GENERIC"
+addons = ["ili9341.py", "xpt2046.py", "ds3231.py", "bmp280.py", "ahtx0.py", "veml7700.py", "xglcd_font.py", "paj7620.py"]
+c_extensions = ""
+
+[microbit]
+build_system = "codal"
+repo = "https://github.com/microbit-foundation/micropython-microbit-v2.git"
+ext = "hex"
+addons = []
+c_extensions = ""
+
+[s3zero]
+port = "esp32"
+ext = "bin"
+make_args = "BOARD=ESP32_GENERIC_S3"
+addons = []
+c_extensions = ""
+
+[esp32s3_devkit]
+port = "esp32"
+ext = "bin"
+make_args = "BOARD=ESP32_GENERIC_S3 BOARD_VARIANT=SPIRAM_OCT_N8R16"
+addons = []
+c_extensions = ""

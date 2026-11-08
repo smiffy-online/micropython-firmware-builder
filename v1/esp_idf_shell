@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Launch a subshell configured for ESP-IDF builds.
+# Everything lives under the directory containing this script.
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+IDF_PATH="$SCRIPT_DIR/esp-idf"
+IDF_TOOLS_PATH="$SCRIPT_DIR/tools"
+
+bash --rcfile <(cat <<EOF
+source ~/.bashrc
+export IDF_TOOLS_PATH="$IDF_TOOLS_PATH"
+source "$IDF_PATH/export.sh"
+echo "=== ESP-IDF shell ==="
+echo "IDF_PATH:        \$IDF_PATH"
+echo "IDF_TOOLS_PATH:  \$IDF_TOOLS_PATH"
+echo "Python:          \$(which python3)"
+echo "To exit, type 'exit'."
+EOF
+)
